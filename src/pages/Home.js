@@ -4,6 +4,8 @@ import MainPageLayout from '../components/MainPageLayout';
 
 const Home = () => {
   const [input, setInput] = useState('');
+  let res;
+  let err = null;
 
   const onInputChange = event => {
     setInput(event.target.value);
@@ -15,20 +17,15 @@ const Home = () => {
     axios
       .get(
         `https://superheroapi.com/api/5995732007165992/search/${input}`
-        // {
-        //   headers: {
-        //     'access-control-allow-credentials': 'false',
-        //     'access-control-allow-headers':
-        //       'Origin, X-Requested-With, Content-Type, Accept',
-        //     'access-control-allow-methods': 'GET',
-        //     'access-control-allow-origin': '*',
-        //   },
-        // }
       )
       .then(response => response.json())
       .then(
-        result => console.log(result),
-        error => console.log(error)
+        result => {
+          res = result;
+        },
+        error => {
+          err = error;
+        }
       );
   };
 
@@ -42,6 +39,9 @@ const Home = () => {
       <button type="button" onClick={onSearch}>
         Search
       </button>
+      <div>
+        Res: {res} Error: {err}
+      </div>
     </MainPageLayout>
   );
 };
