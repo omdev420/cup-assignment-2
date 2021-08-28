@@ -13,8 +13,8 @@ const Home = () => {
 
   const onSearch = () => {
     apiGet(`search/${input}`).then(
-      result => setResults(result.results),
-      error => console.log(error)
+      result => setResults(result.results)
+      //   error => console.log(error)
     );
   };
 
