@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import MainPageLayout from '../components/MainPageLayout';
-import apiGet from '../misc/config';
+import ShowGrid from '../components/show/ShowGrid';
+import { apiGet } from '../misc/config';
 
 const Home = () => {
   const [input, setInput] = useState('');
@@ -28,13 +29,7 @@ const Home = () => {
       return <div>No results</div>;
     }
     if (results && results.length > 0) {
-      return (
-        <div>
-          {results.map(item => (
-            <div key={item.id}>{item.name}</div>
-          ))}
-        </div>
-      );
+      return <ShowGrid data={results} />;
     }
     return null;
   };
