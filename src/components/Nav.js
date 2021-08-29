@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import styled from 'styled-components';
 
@@ -32,7 +32,7 @@ const Nav = () => {
   );
 };
 
-export default Nav;
+export default memo(Nav);
 
 const Links = styled(Link)`
   &.active {

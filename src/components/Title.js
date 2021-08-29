@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 import styled from 'styled-components';
 
 const Title = ({ title, subtitle }) => {
@@ -25,4 +25,4 @@ const Head = styled.div`
   }
 `;
 
-export default Title;
+export default memo(Title);
