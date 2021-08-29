@@ -32,6 +32,7 @@ const ShowGrid = ({ data }) => {
             biography={hero.biography}
             appearance={hero.appearance}
             onStarredClicked={onStarredClicked}
+            isStarred={isStarred}
           />
         );
       })}
