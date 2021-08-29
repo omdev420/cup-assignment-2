@@ -8,6 +8,7 @@ const ShowCard = ({
   image,
   biography,
   appearance,
+  onStarredClicked,
 }) => {
   return (
     <StyledShowCard>
@@ -36,7 +37,9 @@ const ShowCard = ({
 
       <div className="btns">
         <Link to={`/hero/${id}`}>Read more</Link>
-        <button type="button">Star me</button>
+        <button type="button" onClick={onStarredClicked}>
+          Star me
+        </button>
       </div>
     </StyledShowCard>
   );

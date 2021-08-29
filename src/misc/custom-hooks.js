@@ -14,12 +14,7 @@ function heroesReducer(prevState, action) {
       return prevState;
   }
 }
-
-export function usePresistedReducer(
-  reducer,
-  initialState,
-  key
-) {
+function usePresistedReducer(reducer, initialState, key) {
   const [state, dispatch] = useReducer(
     reducer,
     initialState,
