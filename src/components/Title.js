@@ -13,8 +13,10 @@ const Title = ({ title, subtitle }) => {
 const Head = styled.div`
   h1 {
     font-size: 2.3rem;
-    margin: 20px 0 0 0;
+    margin: 20px 0 0px 0;
     color: #cd113b;
+    text-transform: uppercase;
+    letter-spacing: 10px;
   }
 
   p {

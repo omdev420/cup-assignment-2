@@ -1,5 +1,6 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
+import styled from 'styled-components';
 
 const LINKS = [
   { to: '/', text: 'Home' },
@@ -7,12 +8,23 @@ const LINKS = [
 ];
 
 const Nav = () => {
+  const location = useLocation();
+
   return (
     <div>
       <ul>
         {LINKS.map(link => (
           <li key={link.to}>
-            <Link to={link.to}>{link.text}</Link>
+            <Links
+              to={link.to}
+              className={
+                link.to === location.pathname
+                  ? 'active'
+                  : ''
+              }
+            >
+              {link.text}
+            </Links>
           </li>
         ))}
       </ul>
@@ -21,3 +33,10 @@ const Nav = () => {
 };
 
 export default Nav;
+
+const Links = styled(Link)`
+  &.active {
+    color: red;
+    border-bottom: 2px solid red;
+  }
+`;
