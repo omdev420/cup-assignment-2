@@ -1,5 +1,8 @@
 /* eslint-disable no-unused-vars */
 import React, { useState, useEffect } from 'react';
+import PacmanLoader from 'react-spinners/PacmanLoader';
+import FadeIn from 'react-fade-in';
+
 import MainPageLayout from '../components/MainPageLayout';
 import { useHeroes } from '../misc/custom-hooks';
 import { apiGet } from '../misc/config';
@@ -32,13 +35,24 @@ const Favorite = () => {
 
   return (
     <MainPageLayout>
-      {isLoading && <div>Shows are loading</div>}
+      {isLoading && (
+        <PacmanLoader
+          color="#ffa900"
+          loading={isLoading}
+          size={50}
+          css={{
+            margin: '100px',
+          }}
+        />
+      )}
       {error && <div>Error occured while loading</div>}
       {!isLoading && !heroes && (
         <div>No shows were starred</div>
       )}
       {!isLoading && !error && heroes && (
-        <ShowGrid data={heroes} />
+        <FadeIn>
+          <ShowGrid data={heroes} />
+        </FadeIn>
       )}
     </MainPageLayout>
   );

@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import FadeIn from 'react-fade-in';
 import MainPageLayout from '../components/MainPageLayout';
 import ShowGrid from '../components/show/ShowGrid';
 import { apiGet } from '../misc/config';
@@ -25,11 +26,18 @@ const Home = () => {
   };
 
   const renderResults = () => {
-    if (results && results.length === 0) {
-      return <div>No results</div>;
+    if (
+      (results && results.length === 0) ||
+      results === undefined
+    ) {
+      return <div>😔 No results</div>;
     }
     if (results && results.length > 0) {
-      return <ShowGrid data={results} />;
+      return (
+        <FadeIn>
+          <ShowGrid data={results} />
+        </FadeIn>
+      );
     }
     return null;
   };
@@ -38,6 +46,7 @@ const Home = () => {
     <MainPageLayout>
       <input
         type="text"
+        placeholder="Search for you hero"
         onChange={onInputChange}
         onKeyDown={onKeyDown}
         value={input}

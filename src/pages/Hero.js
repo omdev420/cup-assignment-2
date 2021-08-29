@@ -1,5 +1,7 @@
 /* eslint-disable no-unused-vars */
 import React, { useEffect, useReducer } from 'react';
+import PacmanLoader from 'react-spinners/PacmanLoader';
+import styled from 'styled-components';
 import { useParams } from 'react-router-dom';
 import Details from '../components/show/Details';
 import ShowMainData from '../components/show/ShowMainData';
@@ -70,7 +72,15 @@ const Hero = () => {
   }, [id]);
 
   if (isLoading) {
-    return <div>Data is being loaded</div>;
+    return (
+      <CenterLoading>
+        <PacmanLoader
+          loading={isLoading}
+          color="#ffa900"
+          size={50}
+        />
+      </CenterLoading>
+    );
   }
 
   if (error) {
@@ -100,3 +110,13 @@ const Hero = () => {
 };
 
 export default Hero;
+
+const CenterLoading = styled.div`
+  width: 200px;
+  height: 200px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  margin-top: -100px;
+  margin-left: -100px;
+`;

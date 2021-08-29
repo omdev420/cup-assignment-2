@@ -1,5 +1,6 @@
 /* eslint-disable no-unused-vars */
 import React from 'react';
+
 import ShowCard from './ShowCard';
 import { useHeroes } from '../../misc/custom-hooks';
 
@@ -16,7 +17,10 @@ const ShowGrid = ({ data }) => {
 
         const onStarredClicked = () => {
           if (isStarred) {
-            dispatchHeroes({ type: 'REMOVE', id: hero.id });
+            dispatchHeroes({
+              type: 'REMOVE',
+              id: hero.id,
+            });
           } else {
             dispatchHeroes({ type: 'ADD', id: hero.id });
           }

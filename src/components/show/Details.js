@@ -22,7 +22,7 @@ const Details = ({
         </p>
         <p>First appeared in {firstApperance} </p>
         <p>{gender}</p>
-        <p>{race} race</p>
+        <p>{race !== 'null' ? race : 'Unknown'} race</p>
         <p>{height !== '-' ? `Height: ${height}` : null}</p>
         <p>
           {weight !== '- lb' ? `Weight: ${weight}` : null}
