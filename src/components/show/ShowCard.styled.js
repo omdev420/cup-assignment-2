@@ -9,11 +9,11 @@ export const StyledShowCard = styled(SearchCard)`
     align-items: center;
 
     a {
-      text-decoration-color: #000000;
-      color: #000000;
+      color: #ff7600;
+
       &:hover {
         text-decoration-color: blue;
-        color: blue;
+        color: #52006a;
       }
     }
 
@@ -23,11 +23,14 @@ export const StyledShowCard = styled(SearchCard)`
       border-radius: 15px;
       padding: 5px 20px;
       background-color: #fff;
+      color: #8e8e8e;
       display: flex;
       justify-content: center;
       align-items: center;
       &:hover {
         cursor: pointer;
+        background-color: #ff7600;
+        color: #fff;
       }
     }
   }

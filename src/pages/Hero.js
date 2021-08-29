@@ -1,6 +1,8 @@
 /* eslint-disable no-unused-vars */
 import React, { useEffect, useReducer } from 'react';
 import { useParams } from 'react-router-dom';
+import Details from '../components/show/Details';
+import ShowMainData from '../components/show/ShowMainData';
 import { apiGet } from '../misc/config';
 
 const reducer = (prevState, action) => {
@@ -67,8 +69,6 @@ const Hero = () => {
     };
   }, [id]);
 
-  console.log('Hero', hero);
-
   if (isLoading) {
     return <div>Data is being loaded</div>;
   }
@@ -77,7 +77,26 @@ const Hero = () => {
     return <div>Error occurred: {error}</div>;
   }
 
-  return <div>Hero</div>;
+  return (
+    <ShowMainData
+      image={hero.image}
+      name={hero.name}
+      fullName={hero.biography['full-name']}
+      powerStats={hero.powerstats}
+      publisher={hero.biography.publisher}
+    >
+      <Details
+        placeOfBirth={hero.biography['place-of-birth']}
+        firstApperance={hero.biography['first-appearance']}
+        gender={hero.appearance.gender}
+        race={hero.appearance.race}
+        height={hero.appearance.height[0]}
+        weight={hero.appearance.weight[0]}
+        eyeColor={hero.appearance['eye-color']}
+        hairColor={hero.appearance['hair-color']}
+      />
+    </ShowMainData>
+  );
 };
 
 export default Hero;

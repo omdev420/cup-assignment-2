@@ -1,12 +1,26 @@
 import React from 'react';
+import styled from 'styled-components';
 
 const Title = ({ title, subtitle }) => {
   return (
-    <div>
+    <Head>
       <h1>{title}</h1>
       <p>{subtitle}</p>
-    </div>
+    </Head>
   );
 };
+
+const Head = styled.div`
+  h1 {
+    font-size: 2.3rem;
+    margin: 20px 0 0 0;
+    color: #cd113b;
+  }
+
+  p {
+    margin: 0 0 10px 0;
+    color: #23113b;
+  }
+`;
 
 export default Title;

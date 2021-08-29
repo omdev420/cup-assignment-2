@@ -1,17 +1,18 @@
 import React from 'react';
+import { Heading } from './MainPageLayout.styled';
 import Nav from './Nav';
 import Title from './Title';
 
 const MainPageLayout = ({ children }) => {
   return (
-    <div>
+    <Heading>
       <Title
         title="Hero Universe"
         subtitle="Find your heroes"
       />
       <Nav />
       {children}
-    </div>
+    </Heading>
   );
 };
 

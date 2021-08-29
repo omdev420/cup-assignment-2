@@ -24,11 +24,15 @@ const ShowCard = ({
           : null}
       </h1>
       <p>
-        {biography['full-name']
+        {biography['full-name'] !== 'null'
           ? `Full name: ${biography['full-name']}`
-          : null}
+          : 'Undisclosed name'}
       </p>
-      <p>Race: {appearance.race}</p>
+      <p>
+        {appearance.race !== 'null'
+          ? `Race: ${appearance.race}`
+          : 'Unknown race'}
+      </p>
 
       <div className="btns">
         <Link to={`/hero/${id}`}>Read more</Link>
